@@ -1,7 +1,6 @@
-package udemy.adrian_więch.healthy_coder_app;
+package udemy.adrian_wiech.healthy_coder_app;
 
 public class Coder {
-	
 	private double height;
 	private double weight;
 	private int age;
@@ -24,24 +23,31 @@ public class Coder {
 	public double getHeight() {
 		return height;
 	}
+
 	public void setHeight(double height) {
 		this.height = height;
 	}
+
 	public double getWeight() {
 		return weight;
 	}
+
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
+
 	public int getAge() {
 		return age;
 	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 	public Gender getGender() {
 		return gender;
 	}
+
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}	

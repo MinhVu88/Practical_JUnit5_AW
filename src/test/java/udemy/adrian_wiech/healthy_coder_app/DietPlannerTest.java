@@ -1,8 +1,6 @@
 package udemy.adrian_wiech.healthy_coder_app;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,22 +19,26 @@ public class DietPlannerTest {
 		System.out.println("a message after each test method");
 	}
 
-	@Test
-	public void should_calculate_diet_when_coder_provided() {
-		// given
-		Coder coder = new Coder(1.82, 75.0, 26, Gender.MALE);
+	@Nested
+	class CalculateDietTests {
+		//@Test
+		@RepeatedTest(value = 5, name = RepeatedTest.LONG_DISPLAY_NAME)
+		public void should_calculate_diet_when_coder_provided() {
+			// given
+			Coder coder = new Coder(1.82, 75.0, 26, Gender.MALE);
 
-		DietPlan expectedDietPlan = new DietPlan(2202, 110, 73, 275);
+			DietPlan expectedDietPlan = new DietPlan(2202, 110, 73, 275);
 
-		// when
-		DietPlan actualDietPlan = dietPlanner.calculateDiet(coder);
+			// when
+			DietPlan actualDietPlan = dietPlanner.calculateDiet(coder);
 
-		// then
-		assertAll(
-			() -> assertEquals(expectedDietPlan.getCalories(), actualDietPlan.getCalories()),
-			() -> assertEquals(expectedDietPlan.getProtein(), actualDietPlan.getProtein()),
-			() -> assertEquals(expectedDietPlan.getFat(), actualDietPlan.getFat()),
-			() -> assertEquals(expectedDietPlan.getCarbohydrate(), actualDietPlan.getCarbohydrate())
-		);
+			// then
+			assertAll(
+				() -> assertEquals(expectedDietPlan.getCalories(), actualDietPlan.getCalories()),
+				() -> assertEquals(expectedDietPlan.getProtein(), actualDietPlan.getProtein()),
+				() -> assertEquals(expectedDietPlan.getFat(), actualDietPlan.getFat()),
+				() -> assertEquals(expectedDietPlan.getCarbohydrate(), actualDietPlan.getCarbohydrate())
+			);
+		}
 	}
 }
